@@ -9,5 +9,6 @@ namespace REPO_TUT.Data
         public REPOTUTDbContext(DbContextOptions<REPOTUTDbContext> options) : base(options) { }
 
         public DbSet<Alumno> Alumnos { get; set; }
+        public DbSet<Materia> Materias { get; set; }
     }
 }
