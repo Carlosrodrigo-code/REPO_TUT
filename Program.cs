@@ -1,10 +1,16 @@
+using Microsoft.EntityFrameworkCore;
 using REPO_TUT.Components;
+using REPO_TUT.Data;
+using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+
+builder.Services.AddDbContext<REPOTUTDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStrings:DatabaseConnection")));
 
 var app = builder.Build();
 
