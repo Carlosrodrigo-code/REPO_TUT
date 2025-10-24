@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddDbContext<REPOTUTDbContext>(options =>
+builder.Services.AddDbContext<REPO_TUTDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStrings:DatabaseConnection")));
 
 var app = builder.Build();

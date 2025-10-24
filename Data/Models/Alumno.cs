@@ -1,4 +1,4 @@
-﻿
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace REPO_TUT.Data.Models
@@ -13,5 +13,8 @@ namespace REPO_TUT.Data.Models
         public string Matricula { get; set; } = string.Empty;
         [Range(1, 12, ErrorMessage = "El cuatrimestre debe estar entre 1 y 12")]
         public int Cuatrimestre { get; set; }
+
+        //Relacion muchos a muchos con Materias
+        public ICollection<Materia> Materias { get; set; } = new List<Materia>();
     }
 }

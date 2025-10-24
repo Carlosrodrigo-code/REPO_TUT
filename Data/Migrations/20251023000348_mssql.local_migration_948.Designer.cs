@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using REPO_TUT.Data;
 
@@ -9,10 +10,12 @@ using REPO_TUT.Data;
 
 namespace REPO_TUT.Data.Migrations
 {
-    [DbContext(typeof(REPOTUTDbContext))]
-    partial class REPOTUTDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(REPO_TUTDbContext))]
+    [Migration("20251023000348_mssql.local_migration_948")]
+    partial class mssqllocal_migration_948
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

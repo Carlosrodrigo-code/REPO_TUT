@@ -1,18 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace REPO_TUT.Data.Models
 {
-    public class Materia
+    public class Archivo
     {
         [Key]
         public int Id { get; set; }
-        
+
         [Required]
         public string Nombre { get; set; } = string.Empty;
 
-        public ICollection<Archivo> Archivos { get; set; } = new List<Archivo>();
-        public ICollection<Alumno> Alumnos { get; set;} = new List<Alumno>();
-       
+        //Relacion muchos a muchos con Materia
+        public ICollection<Materia> Materias { get; set; } = new List<Materia>();
+
+        
        
     }
 }

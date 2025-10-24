@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using REPO_TUT.Data;
 
@@ -11,11 +10,9 @@ using REPO_TUT.Data;
 namespace REPO_TUT.Data.Migrations
 {
     [DbContext(typeof(REPO_TUTDbContext))]
-    [Migration("20251022064838_AddMaterias")]
-    partial class AddMaterias
+    partial class REPO_TUTDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

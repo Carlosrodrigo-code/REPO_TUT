@@ -10,7 +10,7 @@ using REPO_TUT.Data;
 
 namespace REPO_TUT.Data.Migrations
 {
-    [DbContext(typeof(REPOTUTDbContext))]
+    [DbContext(typeof(REPO_TUTDbContext))]
     [Migration("20251022062144_MigracionInicial")]
     partial class MigracionInicial
     {
