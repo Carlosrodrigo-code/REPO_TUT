@@ -1,23 +1,117 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<style>
+	.logo-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 80px;
+		padding: 16px;
+		background-color: #fff;
+		margin-bottom: 8px;
+	}
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+	.logo-img {
+		height: 60px;
+		width: 60px;
+		object-fit: contain;
+	}
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+	.site-layout .site-layout-background {
+		background: #fff;
+		padding: 24px;
+		min-height: 280px;
+		box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+		border-radius: 4px;
+	}
+
+	.ant-layout-sider {
+		background: #fff !important;
+	}
+
+	.ant-menu-light {
+		background: #fff;
+		border-right: none;
+	}
+
+	.ant-layout-sider-trigger {
+		background: #1890ff !important;
+	}
+
+	#blazor-error-ui {
+		display: none;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		background-color: #ffffe0;
+		border-top: 1px solid #ffd800;
+		padding: 0.6rem 1.25rem;
+		z-index: 1000;
+	}
+
+		#blazor-error-ui .dismiss {
+			cursor: pointer;
+			position: absolute;
+			right: 0.75rem;
+			top: 0.5rem;
+		}
+
+	.logout-button {
+		background-color: #ff4d4f;
+		color: black;
+		border: none;
+		width: 100%;
+		text-align: left;
+		padding: 16px;
+		cursor: pointer;
+	}
+</style>
+
+<Layout Style="min-height: 100vh;">
+	<Sider Collapsible Theme="SiderTheme.Light" Width="250" Collapsed="@collapsed" CollapsedChanged="OnCollapse">
+		<div class="logo-container">
+			<img src="logo.ico" alt="Logo Sistema" class="logo-img" />
+		</div>
+		<Menu Theme="MenuTheme.Light" DefaultSelectedKeys=@(new[] { "1" }) Mode="MenuMode.Inline">
+			<MenuItem Key="1" RouterLink="/" RouterMatch="NavLinkMatch.All">
+				<Icon Type="home" Theme="IconThemeType.Outline" />
+				<span>Inicio</span>
+			</MenuItem>
+			<MenuItem Key="2" RouterLink="/biblioteca" RouterMatch="NavLinkMatch.Prefix">
+				<Icon Type="book" Theme="IconThemeType.Outline" />
+				<span>Biblioteca</span>
+			</MenuItem>
+			<MenuItem Key="3" RouterLink="/usuarios" RouterMatch="NavLinkMatch.Prefix">
+				<Icon Type="account-book" Theme="IconThemeType.Outline" />
+				<span>Usuarios</span>
+			</MenuItem>
+		</Menu>
+	</Sider>
+	<Layout Class="site-layout">
+		<Content Style="margin: 16px;">
+			<div class="site-layout-background">
+				@Body
+			</div>
+		</Content>
+	</Layout>
+</Layout>
 
 <div id="blazor-error-ui">
-    An unhandled error has occurred.
-    <a href="" class="reload">Reload</a>
-    <a class="dismiss">🗙</a>
+	Ha ocurrido un error no controlado.
+	<a href="" class="reload">Recargar</a>
+	<a class="dismiss">🗙</a>
 </div>
+
+@code {
+	private bool collapsed = true;
+
+	private void OnCollapse(bool collapsed)
+	{
+		this.collapsed = collapsed;
+	}
+
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+	}
+}
