@@ -12,7 +12,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddHostedService<InitData>();
 
 builder.Services.AddDbContext<REPO_TUTDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStrings:DatabaseConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DatabaseConnection")));
 
 var app = builder.Build();
 
