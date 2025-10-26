@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using REPO_TUT.Components;
 using REPO_TUT.Data;
+using REPO_TUT.Services;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.AddHostedService<InitData>();
 
 builder.Services.AddDbContext<REPO_TUTDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStrings:DatabaseConnection")));

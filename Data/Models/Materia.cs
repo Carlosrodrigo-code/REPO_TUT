@@ -6,13 +6,8 @@ namespace REPO_TUT.Data.Models
     {
         [Key]
         public int Id { get; set; }
-        
-        [Required]
-        public string Nombre { get; set; } = string.Empty;
 
-        public ICollection<Archivo> Archivos { get; set; } = new List<Archivo>();
-        public ICollection<Alumno> Alumnos { get; set;} = new List<Alumno>();
-       
-       
+        [Required]
+        public string Nombre { get; set; } = string.Empty;       
     }
 }
